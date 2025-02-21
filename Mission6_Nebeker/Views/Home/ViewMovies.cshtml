@@ -1,0 +1,51 @@
+﻿@{
+    ViewData["Title"] = "Movie List";
+}
+
+<h1>Joel Hilton's Movie Collection</h1>
+
+<table class="table table-bordered">
+    <thead class="fw-bolder">
+    <tr>
+        <td>Category</td>
+        <td>Title</td>
+        <td>Year</td>
+        <td>Director</td>
+        <td>Rating</td>
+        <td>Edited</td>
+        <td>Lent To</td>
+        <td>Copied To Plex</td>
+        <td>Notes</td>
+        <td>Edit</td>
+        <td>Delete</td>
+    </tr>
+    </thead>
+    <tbody>
+    @foreach (var movie in Model.Movies)
+    {
+        <tr>
+            <td>
+                @if (movie.Category != null)
+                {
+                    @movie.Category.CategoryName
+                }
+                else
+                {
+                    <span>Unknown</span>
+                }
+            </td>
+            <td>@movie.Title</td>
+            <td>@movie.Year</td>
+            <td>@movie.Director</td>
+            <td>@movie.Rating</td>
+            <td>@movie.Edited</td>
+            <td>@movie.LentTo</td>
+            <td>@movie.CopiedToPlex</td>
+            <td>@movie.Notes</td>
+            
+            <td><a class="btn btn-info" asp-controller="Home" asp-action="EditMovie" asp-route-id="@movie.MovieId">Edit</a></td>
+            <td><a class="btn btn-danger" asp-controller="Home" asp-action="Delete" asp-route-id="@movie.MovieId">Delete</a></td>
+        </tr>
+    }
+    </tbody>
+</table>

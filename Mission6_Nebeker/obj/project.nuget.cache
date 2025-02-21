@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "Sz69Ro94WaM=",
+  "dgSpecHash": "+zrX6fXEvrE=",
   "success": true,
-  "projectFilePath": "/Users/connornebeker/RiderProjects/Mission6_Nebeker/Mission6_Nebeker/Mission6_Nebeker.csproj",
+  "projectFilePath": "/Users/connornebeker/Mission7_Nebeker/Mission6_Nebeker/Mission6_Nebeker.csproj",
   "expectedPackageFiles": [
     "/Users/connornebeker/.nuget/packages/humanizer.core/2.14.1/humanizer.core.2.14.1.nupkg.sha512",
     "/Users/connornebeker/.nuget/packages/microsoft.bcl.asyncinterfaces/6.0.0/microsoft.bcl.asyncinterfaces.6.0.0.nupkg.sha512",

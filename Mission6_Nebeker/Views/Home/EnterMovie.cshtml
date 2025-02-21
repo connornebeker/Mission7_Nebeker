@@ -1,18 +1,28 @@
 ﻿@{
     ViewData["Title"] = "Home Page";
 }
-@model Application
+@model Movie
 
 <div>
     <h1>Enter a movie here!</h1>
 </div>
 <form method="post">
+    <input asp-for="MovieId" hidden/>
+    
     <label asp-for="Category">Category:</label>
-    <input asp-for="Category"/><br/>
+    <select asp-for="CategoryId">
+        <option value="">Select a Category</option>
+        @foreach (Category c in ViewBag.cat)
+        {
+            <option value="@c.CategoryId">@c.CategoryName</option>
+        }
+    </select><br/>
     <label asp-for="Title">Movie Title:</label>
     <input asp-for="Title"/><br/>
     <label asp-for="Year">Year:</label>
     <input asp-for="Year"/><br/>
+    <label asp-for="Director">Director:</label>
+    <input asp-for="Director"/><br/>
     <label asp-for="Rating">Rating:</label>
     <select asp-for="Rating">
         <option value="G">G</option>
@@ -27,8 +37,13 @@
     </select><br/>
     <label asp-for="LentTo">Lent To:</label>
     <input asp-for="LentTo"/><br/>
+    <label asp-for="CopiedToPlex">Copied to Plex:</label>
+    <select asp-for="CopiedToPlex">
+        <option value="true">Yes</option>
+        <option value="false">No</option>
+    </select><br/>
     <label asp-for="Notes">Notes:</label>
     <input asp-for="Notes"/><br/>
-    
+
     <button type="submit">Enter</button>
 </form>
