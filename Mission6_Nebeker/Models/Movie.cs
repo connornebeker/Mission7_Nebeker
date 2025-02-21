@@ -13,7 +13,7 @@ public class Movie
     [Required]
     public string Title { get; set; }
     [Required]
-    [Range(1888, 2025, ErrorMessage = "Please enter a year between 1888 and 2025")]
+    [Range(1888,2025)]
     public int Year { get; set; }
     public string? Director { get; set; }
     public string? Rating { get; set; }

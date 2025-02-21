@@ -40,16 +40,27 @@ public class HomeController : Controller
             .OrderBy(c => c.CategoryName)
             .ToList();
         
-        return View();
+        return View(new Movie());
     }
 
     [HttpPost]
     public IActionResult EnterMovie(Movie entry)
     {
-        
-        _context.Movies.Add(entry);
-        _context.SaveChanges();
-        return RedirectToAction("EnterMovie");
+        if (ModelState.IsValid)
+        {
+            _context.Movies.Add(entry);
+            _context.SaveChanges();
+            return RedirectToAction("ViewMovies");
+        }
+        else
+        {
+            ViewBag.cat = _context.Categories
+                .OrderBy(c => c.CategoryName)
+                .ToList();
+            
+            return View(entry);
+        }
+       
     }
     [HttpGet]
     public IActionResult EditMovie(int id)
@@ -74,7 +85,8 @@ public class HomeController : Controller
     [HttpGet]
     public IActionResult Delete(int id)
     {
-        var movieToDelete = _context.Movies.Single(m => m.MovieId == id);
+        var movieToDelete = _context.Movies
+            .Single(m => m.MovieId == id);
 
         return View(movieToDelete);
     }
